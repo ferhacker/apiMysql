@@ -19,6 +19,14 @@ const connection = mysql.createConnection({
   database: 'sql5749597'
 });
 
+//connecting
+connection.connect((err) =>{
+    if(err){
+        throw err;
+    }
+    console.log('MySql connected...');
+});
+
 // Rota para inserir um novo usuário
 app.post('/dados_usuario', (req, res) => {
   const { name} = req.body;
