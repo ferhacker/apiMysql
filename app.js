@@ -7,9 +7,9 @@ const mysql = require('mysql');
 app.use(cors());
 app.use(express.json());
 
-app.get("/", (req, res) => res.type('html').send(html));
+//app.get("/", (req, res) => res.type('html').send(html));
 
-const server = app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+//const server = app.listen(port, () => console.log(`Example app listening on port ${port}!`));
 
 // Configuração da conexão com o banco de dados
 const connection = mysql.createConnection({
@@ -42,7 +42,7 @@ app.listen(port, () => {
 server.keepAliveTimeout = 120 * 1000;
 server.headersTimeout = 120 * 1000;
 
-const html = `
+/*const html = `
 <!DOCTYPE html>
 <html>
   <head>
@@ -91,4 +91,4 @@ const html = `
     </section>
   </body>
 </html>
-`
+`*/
