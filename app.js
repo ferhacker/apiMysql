@@ -28,11 +28,13 @@ app.post('/dados_usuario', (req, res) => {
     (error, results) => {
       if (error) {
         console.error(error);
+        
         res.status(500).send('Erro ao inserir usuário');
       } else {
         res.send('Usuário inserido com sucesso');
       }
     });
+   console.log(`tentei enviar`);
 });
 
 app.listen(port, () => {
