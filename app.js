@@ -4,6 +4,9 @@ const port = process.env.PORT || 3001;
 const cors = require('cors');
 const mysql = require('mysql');
 
+app.use(cors());
+app.use(express.json());
+
 app.get("/", (req, res) => res.type('html').send(html));
 
 const server = app.listen(port, () => console.log(`Example app listening on port ${port}!`));
