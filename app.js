@@ -4,7 +4,7 @@ const mysql = require('mysql');
 const cors = require('cors');
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3306;
 
 app.use(cors());
 app.use(express.json());
@@ -12,9 +12,9 @@ app.use(express.json());
 // Configuração da conexão com o banco de dados
 const connection = mysql.createConnection({
   host: 'sql5.freemysqlhosting.net',
-  user: 'your_user',
-  password: 'your_password',
-  database: 'your_database'
+  user: 'sql5749597',
+  password: 'hdzfmLLeg7',
+  database: 'sql5749597'
 });
 
 // Rota para inserir um novo usuário
