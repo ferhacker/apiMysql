@@ -7,6 +7,14 @@ app.get("/", (req, res) => res.type('html').send(html));
 
 const server = app.listen(port, () => console.log(`Example app listening on port ${port}!`));
 
+// Configuração da conexão com o banco de dados
+const connection = mysql.createConnection({
+  host: 'sql5.freemysqlhosting.net',
+  user: 'sql5749597',
+  password: 'hdzfmLLeg7',
+  database: 'sql5749597'
+});
+
 server.keepAliveTimeout = 120 * 1000;
 server.headersTimeout = 120 * 1000;
 
