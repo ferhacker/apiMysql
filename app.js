@@ -19,6 +19,26 @@ const connection = mysql.createConnection({
   database: 'sql5749597'
 });
 
+// Rota para inserir um novo usuário
+app.post('/dados_usuario', (req, res) => {
+  const { name} = req.body;
+
+  connection.query('INSERT INTO dados_usuario (nome) VALUES (?)',
+    [name],
+    (error, results) => {
+      if (error) {
+        console.error(error);
+        res.status(500).send('Erro ao inserir usuário');
+      } else {
+        res.send('Usuário inserido com sucesso');
+      }
+    });
+});
+
+app.listen(port, () => {
+  console.log(`Servidor rodando na porta ${port}`);
+});
+
 server.keepAliveTimeout = 120 * 1000;
 server.headersTimeout = 120 * 1000;
 
