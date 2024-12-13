@@ -19,12 +19,12 @@ const connection = mysql.createConnection({
   database: 'sql5749597'
 });
 
-//connecting
-connection.connect((err) =>{
-    if(err){
+connection.connect((err) => {
+    if (err) {
         throw err;
+    } else {
+        console.log("Conexão com o banco de dados estabelecida com sucesso!");
     }
-    console.log('MySql connected...');
 });
 
 // Rota para inserir um novo usuário
