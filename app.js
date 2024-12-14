@@ -11,7 +11,7 @@ const pool = mysql.createPool({
   password: 'Bombanco515',
   database: 'meubanco_mysql'
 });
-
+app.use(express.json());
 //Rota para incluir usuário
 app.post('/inserir', async (req, res) => {
   try {
