@@ -1,5 +1,5 @@
 const express = require('express');
-const mysql = require('mysql2');
+const mysql = require('mysql2/promise');
 
 const app = express();
 const port = 3000;
@@ -12,20 +12,20 @@ const pool = mysql.createPool({
   database: 'meubanco_mysql'
 });
 
-// Rota para buscar os dados
-app.get('/usuarios', (req, res) => {
-  pool.query('SELECT id, name, phone, email FROM usuarios', (err, results) => {
-    if (err) {
-      console.error('Erro ao buscar dados:', err);
-      res.status(500).send('Erro ao buscar dados');
-    } else {
-      console.log('Dados recebidos:', results);
-      res.json(results);
-    }
-  });
+// Rota para buscar todos os dados
+app.get('/usuarios', async (req, res) => {
+  try {
+    const [rows] = await pool.query('SELECT * FROM usuarios');
+
+    console.log(rows); // Exibe os dados no console
+
+    res.json(rows);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Erro ao buscar dados' });
+  }
 });
 
 app.listen(port, () => {
   console.log(`Servidor rodando na porta ${port}`);
 });
-
