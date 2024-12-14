@@ -12,6 +12,21 @@ const pool = mysql.createPool({
   database: 'meubanco_mysql'
 });
 
+//Rota para incluir usuário
+app.post('/inserir', async (req, res) => {
+  try {
+    const { nome, email, phone } = req.body;
+
+    const [results] = await pool.query('INSERT INTO usuarios (name, email, phone) VALUES (?, ?, ?)', [nome, email, phone]);
+
+    res.json({ message: 'Usuário cadastrado com sucesso' });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Erro ao cadastrar usuário' });
+  }
+});
+
+
 // Rota para buscar todos os dados
 app.get('/', async (req, res) => {
   try {
