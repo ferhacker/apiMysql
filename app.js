@@ -16,7 +16,7 @@ const connection = mysql.createConnection({
   host: 'https://db4free.net',
   user: 'usuariofhacker',
   password: 'Bombanco515',
-  database: 'meubanco-mysql'
+  database: 'meubanco_mysql'
 });
 
 connection.connect((err) => {
