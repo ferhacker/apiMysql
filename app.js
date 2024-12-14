@@ -13,7 +13,7 @@ const server = app.listen(port, () => console.log(`Example app listening on port
 
 // Configuração da conexão com o banco de dados
 const connection = mysql.createConnection({
-  host: 'https://db4free.net',
+  host: 'db4free.net',
   user: 'usuariofhacker',
   password: 'Bombanco515',
   database: 'meubanco_mysql'
