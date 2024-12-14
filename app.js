@@ -18,6 +18,7 @@ const connection = mysql.createConnection({
   password: 'Bombanco515',
   database: 'meubanco_mysql'
 });
+//INSERT INTO `usuarios`(`id`, `name`, `phone`, `email`) VALUES ('[value-1]','[value-2]','[value-3]','[value-4]')
 
 connection.connect((err) => {
     if (err) {
@@ -31,7 +32,7 @@ connection.connect((err) => {
 app.post('/dados_usuario', (req, res) => {
   const { name} = req.body;
 
-  connection.query('INSERT INTO dados_usuario (nome) VALUES (?)',
+  connection.query('INSERT INTO usuarios (name) VALUES (?)',
     [name],
     (error, results) => {
       if (error) {
