@@ -13,7 +13,7 @@ const pool = mysql.createPool({
 });
 
 // Rota para buscar todos os dados
-app.get('/usuarios', async (req, res) => {
+app.get('/', async (req, res) => {
   try {
     const [rows] = await pool.query('SELECT * FROM usuarios');
 
