@@ -15,7 +15,7 @@ const pool = mysql.createPool({
 //Rota para incluir usuário
 app.post('/inserir', async (req, res) => {
   try {
-    const { nome, email, phone } = req.body;
+    const { name, email, phone } = req.body;
 
     const [results] = await pool.query('INSERT INTO usuarios (name, email, phone) VALUES (?, ?, ?)', [nome, email, phone]);
 
