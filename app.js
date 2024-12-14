@@ -15,9 +15,9 @@ app.use(express.json());
 //Rota para incluir usuário
 app.post('/inserir', async (req, res) => {
   try {
-    const { name, email, phone } = req.body;
+    const { id, name, email, phone } = req.body;
 
-    const [results] = await pool.query('INSERT INTO usuarios (name, email, phone) VALUES (?, ?, ?)', [name, email, phone]);
+    const [results] = await pool.query('INSERT INTO usuarios (id, name, email, phone) VALUES (?, ?, ?, ?)', [id, name, email, phone]);
 
     res.json({ message: 'Usuário cadastrado com sucesso' });
   } catch (error) {
