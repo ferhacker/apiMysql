@@ -17,7 +17,7 @@ app.post('/inserir', async (req, res) => {
   try {
     const { name, email, phone } = req.body;
 
-    const [results] = await pool.query('INSERT INTO usuarios (name, email, phone) VALUES (?, ?, ?)', [nome, email, phone]);
+    const [results] = await pool.query('INSERT INTO usuarios (name, email, phone) VALUES (?, ?, ?)', [name, email, phone]);
 
     res.json({ message: 'Usuário cadastrado com sucesso' });
   } catch (error) {
